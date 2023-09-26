@@ -41,7 +41,7 @@ class DB {
                 INNER JOIN usuarios ON usuarios.usuarioID = medicos.usuarioID 
                 INNER JOIN pacientes ON pacientes.pacienteID=llamadas.pacienteID 
                 INNER JOIN dispositivos ON dispositivos.dispositivoID = llamadas.dispositivoDeLlamadaID 
-                INNER JOIN zonas ON zonas.zonaID = dispositivos.zonaID;
+                INNER JOIN zonas ON zonas.zonaID = dispositivos.zonaID
                 ";
                 
         if ($userID === false){
@@ -49,7 +49,6 @@ class DB {
             $stmt->execute();
         } else {
             $query.=" AND usuarios.usuarioID = ?";
-            var_dump($query);
             $stmt = $pdo->prepare($query);
             $stmt->execute([$userID]);
         }   
