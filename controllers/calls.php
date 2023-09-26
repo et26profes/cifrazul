@@ -1,6 +1,7 @@
 <?php
 Auth::user();
 
+var_dump($_SESSION);
 if ($_SESSION["isAdmin"]){
     $currentCalls = DB::getCalls();
 } else {
