@@ -18,7 +18,7 @@ class DB {
         GLOBAL $pdo;
         $stmt = $pdo->prepare("SELECT esAdmin FROM usuarios WHERE usuarioID = ?");
         $stmt->execute([$id]);
-        return $stmt->fetchColumn() === 1;
+        return intval($stmt->fetchColumn()) === 1;
     }
 
     static function register($user, $hash, $isAdmin){
