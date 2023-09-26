@@ -49,6 +49,7 @@ class DB {
             $stmt->execute();
         } else {
             $query.=" AND usuarios.usuarioID = ?";
+            var_dump($query);
             $stmt = $pdo->prepare($query);
             $stmt->execute([$userID]);
         }   
