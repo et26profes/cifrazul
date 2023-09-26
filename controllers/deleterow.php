@@ -1,0 +1,17 @@
+<?php
+Auth::admin();
+if (isset($table) && in_array($table, DB::$dataTables)){
+    //
+} else {
+    throw new Exception("wrong table");
+}
+if (isset($id)){
+    $rowID=$id;
+} else {
+    throw new Exception("no ID");
+}
+
+$idColumnName = DB::getTableColumns($table)[0];
+$row = DB::deleteRowFromTable($id, $table, $idColumnName);
+
+echo "";
